@@ -22,7 +22,7 @@
         <div class="dropdown-content" id="dropdown-menu">
           <a onClick="moveToStack()">Stack</a>
           <a onClick="moveToQueue()">Queue</a>
-          <a>Linked List</a>
+          <a onClick="moveToList()">Linked List</a>
           <a>Binary Search Tree</a>
         </div>
       </div>
@@ -42,7 +42,16 @@
       <button class="queuebtn" onclick = "queue_peekFront()">PEEK FRONT</button>
       <button class="infobtn" onclick="data_info(data_structure)">INFO</button>
        
-  </div>
+    </div>
+    <div id="list-page" style="display:none;">
+      <h1 class="title-display">Linked List</h1>
+      <button class="listbtn" onclick = "list_insert()">INSERT</button>
+      <button class="listbtn" onclick = "list_remove()">REMOVE</button>
+      <button class="listbtn" onclick = "list_search()">SEARCH</button>
+      <button class="listbtn" onclick = "list_replace()">REPLACE</button>
+      <button class="infobtn" onclick="data_info(data_structure)">INFO</button>
+       
+    </div>
     <canvas id="canvas" width="1800" height="800"></canvas>
   </body>
   <script type="text/javascript" src="./static/visualizer.js"></script>

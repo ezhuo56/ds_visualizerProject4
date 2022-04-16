@@ -34,6 +34,7 @@ function moveToStack() {
   //Stack page is shown
   document.getElementById("stack-page").style.display = "block";
   document.getElementById("queue-page").style.display = "none";
+  document.getElementById("list-page").style.display = "none";
   data_structure = 1;
   stackTable();
   startStackTable();
@@ -43,7 +44,18 @@ function moveToQueue(){
   //Queue page is shown
   document.getElementById("queue-page").style.display = "block";
   document.getElementById("stack-page").style.display = "none";
+  document.getElementById("list-page").style.display = "none";
   data_structure = 2;
+  queueTable();
+  startQueueTable();
+}
+
+function moveToList(){
+  //Queue page is shown
+  document.getElementById("queue-page").style.display = "none";
+  document.getElementById("stack-page").style.display = "none";
+  document.getElementById("list-page").style.display = "block";
+  data_structure = 3;
   queueTable();
   startQueueTable();
 }
