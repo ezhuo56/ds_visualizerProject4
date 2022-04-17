@@ -352,7 +352,25 @@ function list_insert()
 
 function list_remove()
 {
-
+  if(list.length != 0)
+  {
+    let remove_index = prompt("Select an index to remove: ");
+    if(remove_index < 0 || remove_index > list.length-1)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else
+    {
+      list.splice(remove_index, 1);
+      //startListTable();
+      listTable();
+    }
+  }
+  else
+  {
+    alert("You cannot remove from an empty list!");
+  }
 }
 
 function list_search()
