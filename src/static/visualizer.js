@@ -3,6 +3,7 @@ var top_X = 320;    //Global variable that tracks the top's x value
 const top_Y = 350;  //Global constant variable that tracks the top's y value
 var stack = [];     //Array that tracks the stack
 var queue = [];     //Array that tracks the queue
+var list = [];      //Array that tracks the linked list
 var top_index = stack.length-1;   //Global variable that tracks the top's index
 var front_index = queue.length-1; //Global variable that tracks the front's index
 
@@ -75,6 +76,13 @@ function data_info(data_structure) {
     ' dequeue removes the element at the front of the queue. Peek front allows the user to see the value of the front element.' +
     ' Rectangles are drawn to represent each element in a queue. Enqueue adds a rectangle with a value, dequeue removes a rectangle,' +
     ' and peek alerts the value of the front element. The front element is the most right rectangle.');
+  }
+  else if(data_structure == 3)
+  {
+    alert('A list is a data structure that acts as a collection of elements. Insert adds an element to the list at an index' +
+    ' Remove removes the element at an index. Search allows the user to get the value of an element at an index.' +
+    ' Rectangles are drawn to represent each element in a list. Insert adds a rectangle with a value, remove removes a rectangle,' +
+    ' and search alerts the value of the front element. The first element is the most right rectangle.');
   }
 }
 
@@ -265,12 +273,116 @@ function queue_peekFront()
   }
   else
   {
-    alert("Peek cannot be performed on an empty queue!")
+    alert("Peek cannot be performed on an empty queue!");
   }
 }
 
 function startQueueTable() 
 //clears canvas when user first navigates to the queue page
+{
+  for(let i=0; i<10;i++)
+  {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
+function listTable()
+{
+  if(data_structure==3)
+  {
+    if(elem.getContext)
+    {
+      context = elem.getContext("2d")
+      context.beginPath();
+      top_X = 320;
+      for(let i=0; i<list.length; i++)
+      {
+        context.rect(top_X, top_Y, 130, 200);
+        context.fillStyle = "#FAF9F6";
+        context.fillRect(top_X, top_Y, 130, 200);
+        top_X+=130;
+      }
+      context.lineWidth = "4";
+      context.strokeStyle = "black";
+      context.stroke();
+      if(list.length != 0)
+      {
+        context.fillStyle = "black";
+        context.font = "30px Arial";
+        context.fillText("INDEX 0", 320, top_Y-50);
+      }
+    }
+  }
+}
+
+function list_insert()
+{
+  if(list.length < 10)
+  {
+    let insert_index = prompt("Select an index to insert a value to: ");
+    if(insert_index < 0 || insert_index > list.length)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else
+    {
+      let insert_value = prompt("Select a value to add to the list: ");
+      if(insert_value == "")
+      {
+        alert("You cannot insert the empty string!");
+        return;
+      }
+      else if(insert_value == null)
+      {
+        return;
+      }
+      else
+      {
+        list.splice(insert_index, 0, insert_value);
+        listTable();
+      }
+    }
+  }
+  else
+  {
+    alert("List length is limited to 10 elements for this program!")
+  }
+}
+
+function list_remove()
+{
+
+}
+
+function list_search()
+{
+  if(list.length != 0)
+  {
+    let search_index = prompt("Select an index to search: ");
+    if(search_index < 0 || search_index > list.length-1)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else
+    {
+      alert("The value at index " + search_index + " is " + list[search_index] + "!");
+    }
+  }
+  else
+  {
+    alert("The list is empty!");
+  }
+}
+
+function list_replace()
+{
+
+}
+
+function startListTable() 
+//clears canvas when user first navigates to the list page
 {
   for(let i=0; i<10;i++)
   {
