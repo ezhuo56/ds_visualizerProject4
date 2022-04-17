@@ -363,7 +363,7 @@ function list_remove()
     else
     {
       list.splice(remove_index, 1);
-      //startListTable();
+      startListTable();
       listTable();
     }
   }
@@ -396,7 +396,38 @@ function list_search()
 
 function list_replace()
 {
-
+  if(list.length != 0)
+  {
+    let replace_index = prompt("Select an index to replace: ");
+    if(replace_index < 0 || replace_index > list.length-1)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else
+    {
+      let replace_value = prompt("Select a value to enter: ");
+      if(replace_value == "")
+      {
+        alert("You cannot enter the empty string!");
+        return;
+      }
+      else if(replace_value == null)
+      {
+        return;
+      }
+      else
+      {
+        list.splice(replace_index, 1, replace_value);
+        startListTable();
+        listTable();
+      }
+    }
+  }
+  else
+  {
+    alert("You cannot replace on an empty list!");
+  }
 }
 
 function startListTable() 
