@@ -79,10 +79,11 @@ function data_info(data_structure) {
   }
   else if(data_structure == 3)
   {
-    alert('A list is a data structure that acts as a collection of elements. Insert adds an element to the list at an index' +
+    alert('A linked list is a data structure that acts as a collection of elements. Insert adds an element to the list at an index' +
     ' Remove removes the element at an index. Search allows the user to get the value of an element at an index.' +
     ' Rectangles are drawn to represent each element in a list. Insert adds a rectangle with a value, remove removes a rectangle,' +
-    ' and search alerts the value of the front element. The first element is the most right rectangle.');
+    ' and search alerts the value of the element at the chosen index. Set index changes the value at a given index. ' +
+    ' The first element is the most left rectangle.');
   }
 }
 
@@ -323,6 +324,10 @@ function list_insert()
     if(insert_index < 0 || insert_index > list.length)
     {
       alert("Invalid index!");
+      return;
+    }
+    else if(insert_index == null)
+    {
       return;
     }
     else

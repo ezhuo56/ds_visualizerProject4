@@ -90,6 +90,13 @@
   top: 10%
 }
 
+.list-title {
+  font-size: 100px;
+  position: absolute;
+  left: 36%;
+  top: 10%
+}
+
 .stackbtn {
   background-color: coral;
   border-radius: 10px;
