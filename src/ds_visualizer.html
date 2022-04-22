@@ -23,26 +23,31 @@
           <a onClick="moveToStack()">Stack</a>
           <a onClick="moveToQueue()">Queue</a>
           <a>Linked List</a>
-          <a>Binary Search Tree</a>
+          <a onClick="moveToBST()">Binary Search Tree</a>
         </div>
       </div>
     </div>
     <div id="stack-page" style="display:none;">
         <h1 class="title-display">Stack</h1>
-        <button class="stackbtn" onclick = "stack_push()">PUSH</button>
-        <button class="stackbtn" onclick = "stack_pop()">POP</button>
-        <button class="stackbtn" onclick = "stack_peek()">PEEK</button>
+        <button class="dsbutton" onclick = "stack_push()">PUSH</button>
+        <button class="dsbutton" onclick = "stack_pop()">POP</button>
+        <button class="dsbutton" onclick = "stack_peek()">PEEK</button>
         <button class="infobtn" onclick="data_info(data_structure)">INFO</button>
-         
     </div>
     <div id="queue-page" style="display:none;">
       <h1 class="title-display">Queue</h1>
-      <button class="queuebtn" onclick = "queue_enqueue()">ENQUEUE</button>
-      <button class="queuebtn" onclick = "queue_dequeue()">DEQUEUE</button>
-      <button class="queuebtn" onclick = "queue_peekFront()">PEEK FRONT</button>
+      <button class="dsbutton" onclick = "queue_enqueue()">ENQUEUE</button>
+      <button class="dsbutton" onclick = "queue_dequeue()">DEQUEUE</button>
+      <button class="dsbutton" onclick = "queue_peekFront()">PEEK FRONT</button>
       <button class="infobtn" onclick="data_info(data_structure)">INFO</button>
-       
-  </div>
+    </div>
+    <div id="bst-page" style="display:none;">
+      <h1 class="title-display">Binary Search Tree</h1>
+      <button class="dsbutton" onclick="bst_insert()">INSERT NODE</button>
+      <button class="dsbutton" onclick="bst_remove()">REMOVE NODE</button>
+      <button class="dsbutton" onclick="bst_search()">SEARCH</button>
+      <button class="infobtn" onclick="data_info(data_structure)">INFO</button>
+    </div>
     <canvas id="canvas" width="1800" height="800"></canvas>
   </body>
   <script type="text/javascript" src="./static/visualizer.js"></script>

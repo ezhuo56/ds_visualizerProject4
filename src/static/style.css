@@ -85,38 +85,21 @@
 
 .title-display {
   font-size: 100px;
-  position: absolute;
-  left: 45%;
-  top: 10%
+  text-align: center;
 }
 
-.stackbtn {
+.dsbutton {
   background-color: coral;
   border-radius: 10px;
   width: 10%;
   height: 40px;
   position: relative;
   left: 490px;
-  top: 750px;
+  top: 650px;
   margin-right: 200px;
 }
 
-.stackbtn:hover {
-  background-color: orangered;
-}
-
-.queuebtn {
-  background-color: coral;
-  border-radius: 10px;
-  width: 10%;
-  height: 40px;
-  position: relative;
-  left: 490px;
-  top: 750px;
-  margin-right: 200px;
-}
-
-.queuebtn:hover {
+.dsbutton:hover {
   background-color: orangered;
 }
 
