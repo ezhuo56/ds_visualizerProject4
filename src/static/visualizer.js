@@ -524,6 +524,9 @@ class BinarySearchTree {
   */
   rec_remove(node, direction, data) {
     if(!node) { return null; }
+    if(node.is_filled) {
+      node.clear_fill();
+    }
     //Found node to remove. Return data and handle UI changes
     if(node.data == data) {
       //No children
