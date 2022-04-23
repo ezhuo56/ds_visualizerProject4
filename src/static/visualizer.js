@@ -466,6 +466,9 @@ class BinarySearchTree {
   }
 
   rec_search(node, data) {
+    if(!node) {
+      return false;
+    }
     if(node.data == data) {
       node.fill();
       return true;
