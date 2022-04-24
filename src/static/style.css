@@ -98,8 +98,41 @@
   top: 650px;
   margin-right: 200px;
 }
+.list-title {
+  font-size: 100px;
+  position: absolute;
+  left: 36%;
+  top: 10%
+}
+ 
+.stackbtn {
+ 
+  background-color: coral;
+  border-radius: 10px;
+  width: 10%;
+  height: 40px;
+  position: relative;
+  left: 490px;
+  top: 650px;
+  margin-right: 200px;
+}
 
 .dsbutton:hover {
+  background-color: orangered;
+}
+
+.listbtn {
+  background-color: coral;
+  border-radius: 10px;
+  width: 10%;
+  height: 40px;
+  position: relative;
+  left: 200px;
+  top: 750px;
+  margin-right: 200px;
+}
+
+.listbtn:hover {
   background-color: orangered;
 }
 

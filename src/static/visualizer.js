@@ -3,6 +3,7 @@ var top_X = 320;    //Global variable that tracks the top's x value
 const top_Y = 350;  //Global constant variable that tracks the top's y value
 var stack = [];     //Array that tracks the stack
 var queue = [];     //Array that tracks the queue
+var list = [];      //Array that tracks the linked list
 var top_index = stack.length-1;   //Global variable that tracks the top's index
 var front_index = queue.length-1; //Global variable that tracks the front's index
 
@@ -35,6 +36,7 @@ function moveToStack() {
   document.getElementById("stack-page").style.display = "block";
   document.getElementById("queue-page").style.display = "none";
   document.getElementById("bst-page").style.display = "none";
+  document.getElementById("list-page").style.display = "none";
   data_structure = 1;
   stackTable();
   startStackTable();
@@ -45,6 +47,7 @@ function moveToQueue(){
   document.getElementById("queue-page").style.display = "block";
   document.getElementById("stack-page").style.display = "none";
   document.getElementById("bst-page").style.display = "none";
+  document.getElementById("list-page").style.display = "none";
   data_structure = 2;
   queueTable();
   startQueueTable();
@@ -56,8 +59,19 @@ function moveToBST()
   document.getElementById("stack-page").style.display = "none";
   document.getElementById("queue-page").style.display = "none";
   document.getElementById("bst-page").style.display = "block";
+  document.getElementById("list-page").style.display = "none";
   //document.getElementById("clear_fill").style.display = "none";
   data_structure = 4;
+}
+function moveToList(){
+  //Queue page is shown
+  document.getElementById("queue-page").style.display = "none";
+  document.getElementById("stack-page").style.display = "none";
+  document.getElementById("list-page").style.display = "block";
+  document.getElementById("bst-page").style.display = "none";
+  data_structure = 3;
+  queueTable();
+  startQueueTable();
 }
 
 //Provides user of information regarding the current data structure
@@ -75,6 +89,22 @@ function data_info(data_structure) {
     ' dequeue removes the element at the front of the queue. Peek front allows the user to see the value of the front element.' +
     ' Rectangles are drawn to represent each element in a queue. Enqueue adds a rectangle with a value, dequeue removes a rectangle,' +
     ' and peek alerts the value of the front element. The front element is the most right rectangle.');
+  }
+  else if(data_structure == 3)
+  {
+    alert('A linked list is a data structure that acts as a collection of elements. Insert adds an element to the list at an index' +
+    ' Remove removes the element at an index. Search allows the user to get the value of an element at an index.' +
+    ' Rectangles are drawn to represent each element in a list. Insert adds a rectangle with a value, remove removes a rectangle,' +
+    ' and search alerts the value of the element at the chosen index. Set index changes the value at a given index. ' +
+    ' The first element is the most left rectangle.');
+  }
+  else if(data_structure == 4)
+  {
+    alert("A binary search tree is a data structure that acts as a rooted binary tree data structure where it is a collection of internal nodes."+
+    " Insert node adds in a single node in the middle of the binary search tree, and adding in left or right of the tree depending on the value of the integer,"+
+    " for example, if the starting value is 5, and the user has added in 4 it will be on the left side of the tree, or 6 which will be on the right side of the tree."+
+    " Remove node would remove the node from the tree and then redraw the entire tree to match the current values that are in the tree." + " Search will find the node with the" +
+    " value that is being searched, if there is no node that has the value it will return nothing.");
   }
 }
 
@@ -268,7 +298,7 @@ function queue_peekFront()
   }
   else
   {
-    alert("Peek cannot be performed on an empty queue!")
+    alert("Peek cannot be performed on an empty queue!");
   }
 }
 
@@ -663,3 +693,162 @@ function bst_remove() {
 let bst = new BinarySearchTree();
 
 // End of BST Visualizer Functions
+
+function listTable()
+{
+  if(data_structure==3)
+  {
+    if(elem.getContext)
+    {
+      context = elem.getContext("2d")
+      context.beginPath();
+      top_X = 320;
+      for(let i=0; i<list.length; i++)
+      {
+        context.rect(top_X, top_Y, 130, 200);
+        context.fillStyle = "#FAF9F6";
+        context.fillRect(top_X, top_Y, 130, 200);
+        top_X+=130;
+      }
+      context.lineWidth = "4";
+      context.strokeStyle = "black";
+      context.stroke();
+      if(list.length != 0)
+      {
+        context.fillStyle = "black";
+        context.font = "30px Arial";
+        context.fillText("INDEX 0", 320, top_Y-50);
+      }
+    }
+  }
+}
+
+function list_insert()
+{
+  if(list.length < 10)
+  {
+    let insert_index = prompt("Select an index to insert a value to: ");
+    if(insert_index < 0 || insert_index > list.length)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else if(insert_index == null)
+    {
+      return;
+    }
+    else
+    {
+      let insert_value = prompt("Select a value to add to the list: ");
+      if(insert_value == "")
+      {
+        alert("You cannot insert the empty string!");
+        return;
+      }
+      else if(insert_value == null)
+      {
+        return;
+      }
+      else
+      {
+        list.splice(insert_index, 0, insert_value);
+        listTable();
+      }
+    }
+  }
+  else
+  {
+    alert("List length is limited to 10 elements for this program!")
+  }
+}
+
+function list_remove()
+{
+  if(list.length != 0)
+  {
+    let remove_index = prompt("Select an index to remove: ");
+    if(remove_index < 0 || remove_index > list.length-1)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else
+    {
+      list.splice(remove_index, 1);
+      startListTable();
+      listTable();
+    }
+  }
+  else
+  {
+    alert("You cannot remove from an empty list!");
+  }
+}
+
+function list_search()
+{
+  if(list.length != 0)
+  {
+    let search_index = prompt("Select an index to search: ");
+    if(search_index < 0 || search_index > list.length-1)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else
+    {
+      alert("The value at index " + search_index + " is " + list[search_index] + "!");
+    }
+  }
+  else
+  {
+    alert("The list is empty!");
+  }
+}
+
+function list_replace()
+{
+  if(list.length != 0)
+  {
+    let replace_index = prompt("Select an index to replace: ");
+    if(replace_index < 0 || replace_index > list.length-1)
+    {
+      alert("Invalid index!");
+      return;
+    }
+    else
+    {
+      let replace_value = prompt("Select a value to enter: ");
+      if(replace_value == "")
+      {
+        alert("You cannot enter the empty string!");
+        return;
+      }
+      else if(replace_value == null)
+      {
+        return;
+      }
+      else
+      {
+        list.splice(replace_index, 1, replace_value);
+        startListTable();
+        listTable();
+      }
+    }
+  }
+  else
+  {
+    alert("You cannot replace on an empty list!");
+  }
+}
+
+function startListTable() 
+//clears canvas when user first navigates to the list page
+{
+  for(let i=0; i<10;i++)
+  {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
+ 

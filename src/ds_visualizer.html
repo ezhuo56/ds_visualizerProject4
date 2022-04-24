@@ -22,8 +22,10 @@
         <div class="dropdown-content" id="dropdown-menu">
           <a onClick="moveToStack()">Stack</a>
           <a onClick="moveToQueue()">Queue</a>
-          <a>Linked List</a>
+          <a onClick="moveToList()">Linked List</a>
           <a onClick="moveToBST()">Binary Search Tree</a>
+         
+           
         </div>
       </div>
     </div>
@@ -47,6 +49,16 @@
       <button class="dsbutton" onclick="bst_remove()">REMOVE NODE</button>
       <button class="dsbutton" onclick="bst_search()">SEARCH</button>
       <button class="infobtn" onclick="data_info(data_structure)">INFO</button>
+       
+    </div>
+    <div id="list-page" style="display:none;">
+      <h1 class="list-title">Linked List</h1>
+      <button class="listbtn" onclick = "list_insert()">INSERT</button>
+      <button class="listbtn" onclick = "list_remove()">REMOVE</button>
+      <button class="listbtn" onclick = "list_search()">GET ENTRY</button>
+      <button class="listbtn" onclick = "list_replace()">SET ENTRY</button>
+      <button class="infobtn" onclick="data_info(data_structure)">INFO</button>
+       
     </div>
     <canvas id="canvas" width="1800" height="800"></canvas>
   </body>
