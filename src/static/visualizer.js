@@ -696,7 +696,7 @@ function bst_remove() {
 let bst = new BinarySearchTree();
 
 // End of BST Visualizer Functions
-
+//create the list table
 function listTable()
 {
   if(data_structure==3)
@@ -725,7 +725,7 @@ function listTable()
     }
   }
 }
-
+//add an element to a linked list data structure
 function list_insert()
 {
   if(list.length < 10)
@@ -764,7 +764,7 @@ function list_insert()
     alert("List length is limited to 10 elements for this program!")
   }
 }
-
+//remove list based on user input
 function list_remove()
 {
   if(list.length != 0)
@@ -787,7 +787,7 @@ function list_remove()
     alert("You cannot remove from an empty list!");
   }
 }
-
+//search the overall list based on user input
 function list_search()
 {
   if(list.length != 0)
@@ -808,7 +808,7 @@ function list_search()
     alert("The list is empty!");
   }
 }
-
+//replace a specific element with user input
 function list_replace()
 {
   if(list.length != 0)
