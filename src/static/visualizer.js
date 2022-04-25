@@ -485,13 +485,16 @@ class BinarySearchTree {
     if(this.root) {
       if(this.rec_search(this.root,data)) {
         alert(data + " is in the tree");
+        return data;
       }
       else {
         alert(data + " is not in the tree");
+        return data;
       }
     }
     else {
       alert(data + " is not in the tree");
+      return data;
     }
   }
 
@@ -850,5 +853,168 @@ function startListTable()
     context.clearRect(0, 0, canvas.width, canvas.height);
   }
 }
-
+//test suite to test all functions to check they are working correctly
+function testSuite()
+{
+   
+  console.log("Starting Test Suite...");
+  stack.push(5);
+  if(stack[0]==5)
+  {
+    console.log("Test #1: Using stack push to push value 5 into stack array: PASS");
+  }
+  else
+  {
+    console.log("Test #1: Using stack push to push value 5 into stack array: FAIL");
+  }
+  stack.pop()
+  if(stack.length==0)
+  {
+    console.log("Test #2: Using stack pop to to empty out the current stack elements: PASS");
+  }
+  else
+  {
+    console.log("Test #2: Using stack pop to to empty out the current stack elements: FAIL");
+  }
+  stack.push(5);
+  stack.push(6);
+  stack.push(7);
+  if(stack.length==3)
+  {
+    console.log("Test #3: Using push 3 times to see if the stack properly stores elements: PASS");
+  }
+  else
+  {
+    console.log("Test #3: Using push 3 times to see if the stack properly stores elements: FAIL");
+  }
+  if(stack[2]==7)
+  {
+    console.log("Test #4: Checking if the top of the stack stores the correct element: PASS");
+  }
+  else
+  {
+    console.log("Test #4: Checking if the top of the stack stores the correct element: FAIL");
+  }
+ for(let i=0;i<=2;i++)
+ {
+   stack.pop();
+ }
+ queue.unshift(5);
+ if(queue[0]==5)
+ {
+  console.log("Test #5: Enqueuing value 5 to queue to test enqueue: PASS");
+ }
+ else
+ {
+  console.log("Test #5: Enqueuing value 5 to queue to test enqueue: FAIL");
+ }
+ queue.pop()
+ if(queue[0]==null)
+ {
+  console.log("Test #6: Dequeuing value 5 to queue to test dequeue to empty the queue: PASS");
+ }
+ else
+{
+  console.log("Test #6: Dequeuing value 5 to queue to test dequeue to empty the queue: FAIL");
+}
+queue.unshift(5);
+front_index++;
+queue.unshift(6);
+front_index++
+queue.unshift(7);
+front_index++
+if(queue.length==3)
+{
+  console.log("Test #7: Enqueuing 3 values to see if the queue properly stores elements: PASS");
+}
+else 
+{
+  console.log("Test #7: Enqueuing 3 values to see if the queue properly stores elements: FAIL");
+}
+if(queue[2]==5)
+{
+  console.log("Test #8: Checking if front of queue stores the correct element: PASS");
+}
+else
+{
+  {
+    console.log("Test #8: Checking if front of queue stores the correct element: FAIL");
+  }
+}
+queue.pop();
+front_index--;
+queue.pop();
+front_index--;
+queue.pop()
+front_index--;
+ list.splice(0,0,5);
+ if(list[0]==5)
+ {
+   console.log("Test #9: Check if list insert will insert at index 0 with value 5: PASS")
+ }
+ else
+ {
+  console.log("Test #9: Check if list insert will insert at index 0 with value 5: FAIL")
+ }
+ list.splice(0,1)
+ if(list.length==0)
+ {
+  console.log("Test #10: Test remove on Linked List to see if it empty: PASS")
+ }
+ else
+ {
+  console.log("Test #10: Test remove on Linked List to see if it empty: FAIL")
+ }
+ list.splice(0,0,5);
+ list.splice(1,0,6);
+ list.splice(2,0,7);
+ if(list.length==3)
+ {
+   console.log("Test #11: List insert 3 elements and check if the linked list stores the information correctly: PASS");
+ }
+ else
+ {
+  console.log("Test #11: List insert 3 elements and check if the linked list stores the information correctly: FAIL");
+ }
  
+if(list[1]==6)
+{
+  console.log("Test #12: Check the middle of the linked list to see if the right element has the right information: PASS");
+}
+else
+{
+  console.log("Test #12: Check the middle of the linked list to see if the right element has the right information: FAIL");
+}
+list.splice(1,1,3)
+if(list[1==3])
+{
+  console.log("Test #13: Check the replace function to see if the middle of the list replaces 6 with 3: PASS");
+}
+else
+{
+  console.log("Test #13: Check the replace function to see if the middle of the list replaces 6 with 3: PASS");
+}
+list.pop();
+list.pop();
+list.pop();
+bst.insert(5);
+if(bst.search(5)==5)
+{
+  console.log("Test #14: Inserting value 5 into a BST creates a node of value 5: PASS");
+}
+ else
+ {
+  console.log("Test #14: Inserting value 5 into a BST creates a node of value 5: FAIL");
+ }
+ bst.remove(5);
+  
+ if(bst.root==null)
+ {
+  console.log("Test #15: Using remove node to empty out the binary search tree: PASS");
+ }
+ else
+ {
+  console.log("Test #15: Using remove node to empty out the binary search tree: FAIL");
+ }
+ console.log("Ending Test Suite...");
+}
