@@ -224,6 +224,7 @@ function queueTable()
   {
     if(elem.getContext)
     {
+      //behaves as stack table, but from the other side of the page
       context = elem.getContext("2d")
       context.beginPath();
       top_X = 1320;
@@ -241,6 +242,7 @@ function queueTable()
       {
         context.fillStyle = "black";
         context.font = "30px Arial";
+        //starts at the right side of the page
         context.fillText("FRONT", 1330, top_Y-50);
       }
     }
@@ -260,12 +262,14 @@ function queue_enqueue(value)
     }
     if(new_queue_value==null)
     {
+      //cancel ends the prompt
       return;
     }
     context = elem.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
     queue.unshift(new_queue_value);
     front_index++;
+    //redraws the table
     queueTable();
   }
   else
@@ -276,12 +280,16 @@ function queue_enqueue(value)
 
 function queue_dequeue()
 {
+  //checks if there is an element to dequeue
   if(queue.length > 0)
   {
     context = elem.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
+    //removes the front element
     queue.pop();
+    //updates the index
     front_index--
+    //redraws the table
     queueTable();
   }
   else
@@ -292,6 +300,7 @@ function queue_dequeue()
 
 function queue_peekFront()
 {
+  //gives the value at the front of the queue
   if(queue.length != 0)
   {
     alert("The value in the front element is " + queue[front_index] + "!");
@@ -731,6 +740,7 @@ function list_insert()
   if(list.length < 10)
   {
     let insert_index = prompt("Select an index to insert a value to: ");
+    //checks for valid index
     if(insert_index < 0 || insert_index > list.length)
     {
       alert("Invalid index!");
@@ -754,7 +764,9 @@ function list_insert()
       }
       else
       {
+        //inserts to array
         list.splice(insert_index, 0, insert_value);
+        //redraws table
         listTable();
       }
     }
@@ -777,7 +789,9 @@ function list_remove()
     }
     else
     {
+      //removes from array
       list.splice(remove_index, 1);
+      //redraws table
       startListTable();
       listTable();
     }
@@ -793,6 +807,7 @@ function list_search()
   if(list.length != 0)
   {
     let search_index = prompt("Select an index to search: ");
+    //checks for valid index
     if(search_index < 0 || search_index > list.length-1)
     {
       alert("Invalid index!");
@@ -814,6 +829,7 @@ function list_replace()
   if(list.length != 0)
   {
     let replace_index = prompt("Select an index to replace: ");
+    //checks for valid index
     if(replace_index < 0 || replace_index > list.length-1)
     {
       alert("Invalid index!");
@@ -821,6 +837,7 @@ function list_replace()
     }
     else
     {
+      //takes value to enter
       let replace_value = prompt("Select a value to enter: ");
       if(replace_value == "")
       {
@@ -833,7 +850,9 @@ function list_replace()
       }
       else
       {
+        //replaces the old value with the new value
         list.splice(replace_index, 1, replace_value);
+        //redraws the table
         startListTable();
         listTable();
       }
